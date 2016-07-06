@@ -40,6 +40,18 @@
     <script type="text/javascript">stLight.options({publisher: '{{ . }}', doNotHash: true, doNotCopy: true, hashAddressBar: false});</script>
   {{ end }}
 
+  {{ if .Params.tags }}
+    <meta name="keywords" content="{{ delimit .Params.tags "," }}" />
+  {{ else }}
+    <meta name="keywords" content="{{ delimit .Site.Params.keywords "," }}" />
+  {{ end }}
+
+  {{ if .Params.description }}
+    <meta name="description" content="{{ .Params.description }}" />
+  {{ else }}
+    <meta name="description" content="{{ .Site.Params.description }}" />
+  {{ end }}
+ 
 
 </head>
 

@@ -7,14 +7,14 @@
       <h1>{{ .Title }}</h1>
       <div class="meta">
         {{ .Date.Format "Jan 2, 2006" }} &nbsp;
-        {{ range .Params.tags }}
-          #<a href="/tags/{{ . | urlize }}">{{ . }}</a>&nbsp;
+        {{ range .Params.categories }}
+          #<a href="/categories/{{ . | urlize }}">{{ . }}</a>&nbsp;
         {{ end }}
       </div>
     </div>
     <article>
       {{ .Content }}
-      
+
       <!-- ShareThis Buttons
       –––––––––––––––––––––––––––––––––––––––––––––––––– -->
       {{ with .Site.Params.shareThis }}
@@ -24,13 +24,13 @@
           <span class='st_googleplus_large' displayText='Google +'></span>
           <span class='st_pocket_large' displayText='Pocket'></span>
           <span class='st_sharethis_large' displayText='ShareThis'></span>
-          <span class='st_email_large' displayText='Email'></span>  
+          <span class='st_email_large' displayText='Email'></span>
         </div>
       {{ end }}
     </article>
     {{ partial "disqus.html" . }}
   </main>
-  
+
   <nav class="pagination-single">
     {{ if .Next }}
       <span class="previous">&larr; <a href="{{ .Next.Permalink }}" rel="prev">{{ .Next.Title }}</a></span>
